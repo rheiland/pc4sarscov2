@@ -53,9 +53,21 @@ ARCH := native # best auto-tuning
 
 # CFLAGS := -march=$(ARCH) -Ofast -s -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 # remove the -march arg to avoid SIGILL error on nanoHUB
-#CFLAGS := -march=$(ARCH) -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
 CFLAGS := -O3 -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
-#CFLAGS := -g -fomit-frame-pointer -mfpmath=both -fopenmp -m64 -std=c++11
+ifeq ($(OS),Windows_NT)
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Darwin)
+		UNAME_P := $(shell uname -p)
+		var0 := $(shell which $(CC))
+		var1 := $(shell file $(var0))
+		var2 := $(lastword $(var1))
+		ifeq "$(var2)" "arm64"  # avoid mfpmath on Mac M1/silicon
+			CFLAGS := -O3 -fomit-frame-pointer -fopenmp -m64 -std=c++11
+		endif
+	endif
+endif
+
 
 COMPILE_COMMAND := $(CC) $(CFLAGS) 
 
