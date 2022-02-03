@@ -262,7 +262,7 @@ class Vis(QWidget):
 
         controls_vbox = QVBoxLayout()
         controls_vbox.addLayout(controls_hbox)
-        controls_vbox.addLayout(controls_hbox2)
+        # controls_vbox.addLayout(controls_hbox2)
 
         #==================================================================
         self.config_params.setLayout(self.vbox)

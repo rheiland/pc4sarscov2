@@ -197,7 +197,7 @@ class PhysiCellXMLCreator(QWidget):
             self.vis_tab.fill_substrates_combobox(self.celldef_tab.substrate_list)
             # self.vis_tab.substrates_cbox_changed_cb(2)   # doesn't accomplish it; need to set index, but not sure when
             self.vis_tab.init_plot_range(self.config_tab)
-            self.vis_tab.show_edge = False
+            # self.vis_tab.show_edge = False
 
         vlayout.addWidget(tabWidget)
 
