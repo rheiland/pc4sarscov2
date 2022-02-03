@@ -78,9 +78,9 @@ class RunModel(QWidget):
         hbox.addWidget(QLabel("Exec:"))
         self.exec_name = QLineEdit()
         if self.nanohub_flag:
-            self.exec_name.setText('biorobots')
+            self.exec_name.setText('sars_cov2')
         else:
-            self.exec_name.setText('../biorobots')
+            self.exec_name.setText('../sars_cov2')
         # self.exec_name.setEnabled(False)
         hbox.addWidget(self.exec_name)
 
