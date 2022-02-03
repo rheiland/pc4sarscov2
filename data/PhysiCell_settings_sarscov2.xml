@@ -226,41 +226,265 @@
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="pro-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="chemokine">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="debris">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="anti-inflammatory cytokine">
 						<secretion_target units="dimensionless substrate concentration">10</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="collagen">
 						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="ROS">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 					<substrate name="Ig">
 						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
 						<uptake_rate units="1/min">0.00</uptake_rate>
 						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="assembled virion">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
+					</substrate>
+					<substrate name="pro-pyroptosis cytokine">
+						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<uptake_rate units="1/min">0.0</uptake_rate>
+						<secretion_rate units="1/min">0</secretion_rate>
+                        <net_export_rate units="total substrate/min">0</net_export_rate> 
 					</substrate>
 				</secretion>
 				<molecular />
