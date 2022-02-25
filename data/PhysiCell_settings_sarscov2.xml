@@ -14,7 +14,7 @@
 	</domain>
 	
 	<overall>
-		<max_time units="min">21600</max_time> 
+		<max_time units="min">17280</max_time> 
 		<time_units>min</time_units>
 		<space_units>micron</space_units>
 	
@@ -36,12 +36,12 @@
 		<folder>.</folder>  
 
 		<full_data>
-			<interval units="min">360</interval>
+			<interval units="min">120</interval>
 			<enable>true</enable>
 		</full_data>
 		
 		<SVG>
-			<interval units="min">360</interval>
+			<interval units="min">120</interval>
 			<enable>true</enable>
 		</SVG>
 		

@@ -44,6 +44,7 @@ class SubstrateDef(QWidget):
         splitter = QSplitter()
 
         tree_widget_width = 160
+        tree_widget_width = 200
         tree_widget_height = 400
 
         self.tree = QTreeWidget() # tree is overkill; list would suffice; Meh.

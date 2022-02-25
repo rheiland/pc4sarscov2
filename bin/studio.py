@@ -57,8 +57,8 @@ class PhysiCellXMLCreator(QWidget):
             self.nanohub_flag = "home/nanohub" in os.environ['HOME']
 
 
-        self.title_prefix = "PhysiCell model for SARS-COV-2: "
-        # self.title_prefix = "PhysiCell Studio"
+        # self.title_prefix = "PhysiCell Studio: "
+        self.title_prefix = "pc4sarscov2: "
         self.setWindowTitle(self.title_prefix)
 
         # Menus
@@ -66,7 +66,7 @@ class PhysiCellXMLCreator(QWidget):
         # vlayout.setContentsMargins(5, 35, 5, 5)  # left,top,right,bottom
         vlayout.setContentsMargins(-1, 10, -1, -1)
         # if not self.nanohub_flag:
-        if False:
+        if True:
             menuWidget = QWidget(self.menu())
             vlayout.addWidget(menuWidget)
             vlayout.addWidget(QHLine(False))
@@ -85,19 +85,23 @@ class PhysiCellXMLCreator(QWidget):
         # self.file_menu.insertAction("Open")
         # self.menubar.addMenu(self.file_menu)
 
-        # model_name = "PhysiCell_settings-v5-flat"
+        # GUI tabs
+
+
         model_name = "PhysiCell_settings_sarscov2"
 
+        # binDirectory = os.path.realpath(os.path.abspath(__file__))
         binDirectory = os.path.dirname(os.path.abspath(__file__))
         dataDirectory = os.path.join(binDirectory,'..','data')
         print("-------- dataDirectory (relative) =",dataDirectory)
         self.absolute_data_dir = os.path.abspath(dataDirectory)
         print("-------- absolute_data_dir =",self.absolute_data_dir)
-        # os.environ['KIDNEY_DATA_PATH'] = self.absolute_data_dir
-
+        os.environ['KIDNEY_DATA_PATH'] = self.absolute_data_dir
         # dataDirectory = os.path.join(binDirectory,'..','config')
         # dataDirectory = os.path.join('.','config')
 
+        # read_file = model_name + ".xml"
+        # read_file = os.path.join(dataDirectory, model_name + ".xml")
         read_file = os.path.join(self.absolute_data_dir, model_name + ".xml")
         # self.setWindowTitle(self.title_prefix + model_name)
 
@@ -155,15 +159,34 @@ class PhysiCellXMLCreator(QWidget):
         self.celldef_tab.fill_substrates_comboboxes()
         # self.vis_tab.substrates_cbox_changed_cb(2)
         self.microenv_tab.celldef_tab = self.celldef_tab
+
+        # self.cell_customdata_tab = CellCustomData()
+        # self.cell_customdata_tab.xml_root = self.xml_root
+        # self.cell_customdata_tab.celldef_tab = self.celldef_tab
+        # self.cell_customdata_tab.fill_gui(self.celldef_tab)
+        # self.celldef_tab.fill_custom_data_tab()
         
         self.user_params_tab = UserParams()
         self.user_params_tab.xml_root = self.xml_root
         self.user_params_tab.fill_gui()
 
-        self.run_tab = RunModel(self.nanohub_flag)
+        # self.sbml_tab = SBMLParams()
+        # self.sbml_tab.xml_root = self.xml_root
+        # self.sbml_tab.fill_gui()
+
+
+        # self.save_as_cb()
+
+        self.tabWidget = QTabWidget()
+
+        self.run_tab = RunModel(self.nanohub_flag, self.tabWidget)
         self.homedir = os.getcwd()
         print("studio.py: self.homedir = ",self.homedir)
         self.run_tab.homedir = self.homedir
+        # self.run_tab.nanohub_flag = self.nanohub_flag
+
+        # self.run_tab.xmin = 
+        # self.run_tab.xmax = 
 
         #------------------
         # if self.nanohub_flag:  # to be able to fill_xml() from Run tab
@@ -175,23 +198,27 @@ class PhysiCellXMLCreator(QWidget):
             self.run_tab.tree = self.tree
 
         #------------------
-        tabWidget = QTabWidget()
+        # self.tabWidget = QTabWidget()
         stylesheet = """
             QTabBar::tab:selected {background: orange;}   #  dodgerblue
             """
-        tabWidget.setStyleSheet(stylesheet)
-        tabWidget.addTab(self.config_tab,"Config Basics")
-        tabWidget.addTab(self.microenv_tab,"Microenvironment")
-        tabWidget.addTab(self.celldef_tab,"Cell Types")
-        # tabWidget.addTab(self.cell_customdata_tab,"Cell Custom Data")
-        tabWidget.addTab(self.user_params_tab,"User Params")
-        tabWidget.addTab(self.run_tab,"Run")
+        self.tabWidget.setStyleSheet(stylesheet)
+        self.tabWidget.addTab(self.config_tab,"Config Basics")
+        self.tabWidget.addTab(self.microenv_tab,"Microenvironment")
+        self.tabWidget.addTab(self.celldef_tab,"Cell Types")
+        # self.tabWidget.addTab(self.cell_customdata_tab,"Cell Custom Data")
+        self.tabWidget.addTab(self.user_params_tab,"User Params")
+        self.tabWidget.addTab(self.run_tab,"Run")
         if show_vis_flag:
             print("studio.py: creating vis_tab (Plot tab)")
             self.vis_tab = Vis(self.nanohub_flag)
+            # self.vis_tab.setEnabled(False)
             # self.vis_tab.nanohub_flag = self.nanohub_flag
             # self.vis_tab.xml_root = self.xml_root
-            tabWidget.addTab(self.vis_tab,"Plot")
+            self.tabWidget.addTab(self.vis_tab,"Plot")
+            # self.tabWidget.setTabEnabled(5, False)
+            self.enablePlotTab(False)
+
             self.run_tab.vis_tab = self.vis_tab
             print("studio.py: calling vis_tab.substrates_cbox_changed_cb(2)")
             self.vis_tab.fill_substrates_combobox(self.celldef_tab.substrate_list)
@@ -199,35 +226,84 @@ class PhysiCellXMLCreator(QWidget):
             self.vis_tab.init_plot_range(self.config_tab)
             # self.vis_tab.show_edge = False
 
-        vlayout.addWidget(tabWidget)
+        vlayout.addWidget(self.tabWidget)
+        # self.addTab(self.sbml_tab,"SBML")
 
+        # self.tabWidget.setCurrentIndex(1)  # rwh/debug: select Microenv
+        # self.tabWidget.setCurrentIndex(2)  # rwh/debug: select Cell Types
         if show_vis_flag:
-            tabWidget.setCurrentIndex(0)    # Cconfig Basics
+            self.tabWidget.setCurrentIndex(0)    # Cconfig Basics
+            # self.tabWidget.setCurrentIndex(2)    # Cell Types
+            # self.tabWidget.setCurrentIndex(5)    # Plot
         else:
-            tabWidget.setCurrentIndex(0)  # Config (default)
+            self.tabWidget.setCurrentIndex(0)  # Config (default)
 
+    def enablePlotTab(self, bval):
+        self.tabWidget.setTabEnabled(5, bval)
 
     def menu(self):
         menubar = QMenuBar(self)
         menubar.setNativeMenuBar(False)
 
         #--------------
-        file_menu = menubar.addMenu('&Model')
+        # file_menu = menubar.addMenu('&Model')
 
-        # open_act = QtGui.QAction('Open', self, checkable=True)
-        # open_act = QtGui.QAction('Open', self)
-        # open_act.triggered.connect(self.open_as_cb)
-        # file_menu.addAction("New (template)", self.new_model_cb, QtGui.QKeySequence('Ctrl+n'))
-        file_menu.addAction("biorobots", self.biorobots_cb)
-        file_menu.addAction("celltypes3", self.celltypes3_cb)
-        file_menu.addAction("pred_prey_farmer", self.pred_prey_cb)
-        file_menu.addAction("Save as mymodel.xml", self.save_as_cb)
+        # # open_act = QtGui.QAction('Open', self, checkable=True)
+        # # open_act = QtGui.QAction('Open', self)
+        # # open_act.triggered.connect(self.open_as_cb)
+        # # file_menu.addAction("New (template)", self.new_model_cb, QtGui.QKeySequence('Ctrl+n'))
+        # file_menu.addAction("biorobots", self.biorobots_cb)
+        # file_menu.addAction("celltypes3", self.celltypes3_cb)
+        # file_menu.addAction("pred_prey_farmer", self.pred_prey_cb)
+        # file_menu.addAction("Save as mymodel.xml", self.save_as_cb)
 
+        # view_menu = menubar.addMenu('&View')
+        # view_menu.addAction("Show/Hide plot range", self.view_plot_range_cb)
+
+        #--------------
+        # samples_menu = file_menu.addMenu("Samples (copy of)")
+        # # biorobots_act = QtGui.QAction('biorobots', self)
+        # biorobots_act = QAction('biorobots', self)
+        # samples_menu.addAction(biorobots_act)
+        # biorobots_act.triggered.connect(self.biorobots_cb)
+
+
+        #--------------
+        # file_menu.addAction(open_act)
+        # file_menu.addAction(recent_act)
+        # file_menu.addAction(save_act)
+        # file_menu.addAction(save_act, self.save_act, QtGui.QKeySequence("Ctrl+s"))
+        # file_menu.addAction(saveas_act)
+
+
+        #--------------
+        # self.models_menu = menubar.addMenu('&Models')
+        # models_menu_act = QAction('-----', self)
+        # self.models_menu.addAction(models_menu_act)
+        # models_menu_act.triggered.connect(self.select_current_model_cb)
+        # # self.models_menu.addAction('Load sample', self.select_current_model_cb)
+
+        #--------------
+        # tools_menu = menubar.addMenu('&Tools')
+        # validate_act = QAction('Validate', self)
+        # tools_menu.addAction(validate_act)
+        # validate_act.triggered.connect(self.validate_cb)
 
         menubar.adjustSize()  # Argh. Otherwise, only 1st menu appears, with ">>" to others!
 
     #-----------------------------------------------------------------
     def add_new_model(self, name, read_only):
+        # does it already exist? If so, return
+        # if name in self.model.keys():
+        #     return
+        # self.model[name] = read_only
+        # self.num_models += 1
+        # print("add_new_model(): self.model (dict)= ",self.model)
+
+        # models_menu_act = QAction(name, self)
+        # self.models_menu.addAction(models_menu_act)
+        # models_menu_act.triggered.connect(self.select_current_model_cb)
+
         print("add_new_model: title suffix= ",name)
         self.setWindowTitle(self.title_prefix + name)
 
@@ -321,6 +397,10 @@ class PhysiCellXMLCreator(QWidget):
         self.user_params_tab.fill_gui()
 
         self.vis_tab.init_plot_range(self.config_tab)
+        self.vis_tab.reset_model()
+        # self.vis_tab.setEnabled(False)
+        self.enablePlotTab(False)
+        self.tabWidget.setCurrentIndex(0)  # Config (default)
 
 
     def show_sample_model(self):
@@ -350,6 +430,9 @@ class PhysiCellXMLCreator(QWidget):
         save_as_file = "mymodel.xml"
         print("studio.py:  save_as_cb: writing to: ",save_as_file) # writing to:  ('/Users/heiland/git/PhysiCell-model-builder/rwh.xml', 'All Files (*)')
         self.tree.write(save_as_file)
+
+    def view_plot_range_cb(self):
+        self.vis_tab.show_hide_plot_range()
 
     def indent(elem, level=0):
         i = "\n" + level*"  "
@@ -422,7 +505,6 @@ class PhysiCellXMLCreator(QWidget):
             print("config_file = ",config_file)
             self.run_tab.exec_name.setText(exec_pgm)
             self.run_tab.config_xml_name.setText(config_file)
-
 
 def main():
     inputfile = ''
